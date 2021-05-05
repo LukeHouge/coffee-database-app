@@ -3,7 +3,7 @@
     <h4>coffee</h4>
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Coffee Name</label>
         <input
           type="text"
           class="form-control"
@@ -12,37 +12,82 @@
           name="title"
         />
       </div>
+
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="roaster">Roaster</label>
         <input
-          type="text"
           class="form-control"
-          id="description"
-          [(ngModel)]="currentcoffee.description"
-          name="description"
+          id="roaster"
+          [(ngModel)]="currentcoffee.roaster"
+          name="roaster"
         />
       </div>
 
       <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentcoffee.published ? "Published" : "Pending" }}
+        <label for="price">Price</label>
+        <input
+          class="form-control"
+          id="price"
+          [(ngModel)]="currentcoffee.price"
+          name="price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="size">Size (oz)</label>
+        <input
+          class="form-control"
+          id="size"
+          [(ngModel)]="currentcoffee.size"
+          name="size"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Purchased Date</label>
+        <input
+          class="form-control"
+          id="date"
+          type="date"
+          [(ngModel)]="currentcoffee.date"
+          name="date"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea
+          class="form-control"
+          id="notes"
+          [(ngModel)]="currentcoffee.notes"
+          name="notes"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="link">Link</label>
+        <input
+          class="form-control"
+          type="url"
+          id="link"
+          [(ngModel)]="currentcoffee.link"
+          name="link"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="score">Score</label>
+        <input
+          class="form-control"
+          id="score"
+          [(ngModel)]="currentcoffee.score"
+          name="score"
+        />
       </div>
     </form>
 
-    <button
-      class="badge badge-primary mr-2"
-      *ngIf="currentcoffee.published"
-      (click)="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button
-      *ngIf="!currentcoffee.published"
-      class="badge badge-primary mr-2"
-      (click)="updatePublished(true)"
-    >
-      Publish
-    </button>
+    <button class="badge badge-primary mr-2">UnPublish</button>
+    <button class="badge badge-primary mr-2">Publish</button>
 
     <button class="badge badge-danger mr-2" (click)="deletecoffee()">
       Delete

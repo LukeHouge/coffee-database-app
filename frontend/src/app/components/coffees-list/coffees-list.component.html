@@ -42,12 +42,38 @@
         <label><strong>Title:</strong></label> {{ currentcoffee.title }}
       </div>
       <div>
-        <label><strong>Description:</strong></label>
-        {{ currentcoffee.description }}
+        <label><strong>Roaster:</strong></label>
+        {{ currentcoffee.roaster }}
       </div>
       <div>
-        <label><strong>Status:</strong></label>
-        {{ currentcoffee.published ? "Published" : "Pending" }}
+        <label><strong>Price:</strong></label>
+        ${{ currentcoffee.price }}
+      </div>
+      <div>
+        <label><strong>Size (oz):</strong></label>
+        {{ currentcoffee.size }} oz
+      </div>
+      <div>
+        <label><strong>Price/oz:</strong></label>
+        ${{ currentcoffee.price / currentcoffee.size }} oz
+      </div>
+      <div>
+        <label><strong>Purchase Date:</strong></label>
+        {{ currentcoffee.purchased }}
+      </div>
+      <div>
+        <label><strong>Notes:</strong></label
+        ><br />
+        {{ currentcoffee.notes }}<br /><br />
+      </div>
+      <div>
+        <label
+          ><strong><a href="{{ currentcoffee.link }}">Link</a></strong></label
+        >
+      </div>
+      <div>
+        <label><strong>Score:</strong></label>
+        {{ currentcoffee.score }}
       </div>
 
       <a

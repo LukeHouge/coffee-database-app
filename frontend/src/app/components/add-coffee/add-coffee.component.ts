@@ -10,10 +10,15 @@ import { CoffeeService } from 'src/app/services/coffee.service';
 export class AddCoffeeComponent implements OnInit {
   coffee: Coffee = {
     title: '',
-    description: '',
-    published: false,
+    roaster: '',
+    notes: '',
+    link: '',
   };
   submitted = false;
+  score = 0;
+  price = 0;
+  size = -0;
+  date = 0;
   message = '';
 
   constructor(private coffeeService: CoffeeService) {}
@@ -23,7 +28,13 @@ export class AddCoffeeComponent implements OnInit {
   savecoffee(): void {
     const data = {
       title: this.coffee.title,
-      description: this.coffee.description,
+      roaster: this.coffee.roaster,
+      price: this.coffee.price,
+      size: this.coffee.size,
+      date: this.coffee.date,
+      notes: this.coffee.notes,
+      link: this.coffee.link,
+      score: this.coffee.score,
     };
 
     this.coffeeService.create(data).subscribe(
@@ -44,8 +55,9 @@ export class AddCoffeeComponent implements OnInit {
     this.submitted = false;
     this.coffee = {
       title: '',
-      description: '',
-      published: false,
+      roaster: '',
+      notes: '',
+      link: '',
     };
   }
 }

@@ -64,8 +64,8 @@ public class coffeeController {
 	@PostMapping("/coffees")
 	public ResponseEntity<Coffee> createcoffee(@RequestBody Coffee coffee) {
 		try {
-			Coffee _coffee = coffeeRepository
-					.save(new Coffee(coffee.getTitle(), coffee.getDescription(), false));
+			Coffee _coffee = coffeeRepository.save(new Coffee(coffee.getTitle(), coffee.getRoaster(), coffee.getPrice,
+					coffee.getSize(), coffee.getDate(), coffee.getNotes(), coffee.getLink(), coffee.getScore()));
 			return new ResponseEntity<>(_coffee, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,8 +79,14 @@ public class coffeeController {
 		if (coffeeData.isPresent()) {
 			Coffee _coffee = coffeeData.get();
 			_coffee.setTitle(coffee.getTitle());
-			_coffee.setDescription(coffee.getDescription());
-			_coffee.setPublished(coffee.isPublished());
+			_coffee.setRoaster(coffee.getRoaster());
+			_coffee.setPrice(coffee.getPrice());
+			_coffee.setSize(coffee.getSize());
+			_coffee.setDate(coffee.getDate());
+			_coffee.setNotes(coffee.getNotes());
+			_coffee.setLink(coffee.getLink());
+			_coffee.setScore(coffee.getScore());
+
 			return new ResponseEntity<>(coffeeRepository.save(_coffee), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -106,20 +112,6 @@ public class coffeeController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-	}
-
-	@GetMapping("/coffees/published")
-	public ResponseEntity<List<Coffee>> findByPublished() {
-		try {
-			List<Coffee> coffees = coffeeRepository.findByPublished(true);
-
-			if (coffees.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(coffees, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
 	}
 
 }

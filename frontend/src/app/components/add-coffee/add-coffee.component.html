@@ -2,7 +2,7 @@
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Coffee Name</label>
         <input
           type="text"
           class="form-control"
@@ -14,13 +14,82 @@
       </div>
 
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description">Roaster</label>
         <input
           class="form-control"
-          id="description"
+          id="roaster"
           required
-          [(ngModel)]="coffee.description"
-          name="description"
+          [(ngModel)]="coffee.roaster"
+          name="roaster"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          class="form-control"
+          id="price"
+          required
+          [(ngModel)]="coffee.price"
+          name="price"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="size">Size (oz)</label>
+        <input
+          class="form-control"
+          id="size"
+          required
+          [(ngModel)]="coffee.size"
+          name="size"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Purchased Date</label>
+        <input
+          class="form-control"
+          id="date"
+          type="date"
+          required
+          [(ngModel)]="coffee.date"
+          name="date"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea
+          class="form-control"
+          id="notes"
+          required
+          [(ngModel)]="coffee.notes"
+          name="notes"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="link">Link</label>
+        <input
+          class="form-control"
+          type="url"
+          id="link"
+          required
+          [(ngModel)]="coffee.link"
+          name="link"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="score">Score</label>
+        <input
+          class="form-control"
+          id="score"
+          required
+          [(ngModel)]="coffee.score"
+          name="score"
         />
       </div>
 

@@ -11,9 +11,14 @@ import { Coffee } from 'src/app/models/coffee.model';
 export class CoffeeDetailsComponent implements OnInit {
   currentcoffee: Coffee = {
     title: '',
-    description: '',
-    published: false,
+    roaster: '',
+    notes: '',
+    link: '',
   };
+  score = 0;
+  price = 0;
+  size = 0;
+  date = 0;
   message = '';
 
   constructor(
@@ -42,15 +47,19 @@ export class CoffeeDetailsComponent implements OnInit {
   updatePublished(status: boolean): void {
     const data = {
       title: this.currentcoffee.title,
-      description: this.currentcoffee.description,
-      published: status,
+      roaster: this.currentcoffee.roaster,
+      price: this.currentcoffee.price,
+      size: this.currentcoffee.size,
+      date: this.currentcoffee.date,
+      notes: this.currentcoffee.notes,
+      link: this.currentcoffee.link,
+      score: this.currentcoffee.score,
     };
 
     this.message = '';
 
     this.coffeeService.update(this.currentcoffee.id, data).subscribe(
       (response) => {
-        this.currentcoffee.published = status;
         console.log(response);
         this.message = response.message
           ? response.message
