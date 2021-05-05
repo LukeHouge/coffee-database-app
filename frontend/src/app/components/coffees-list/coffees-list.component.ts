@@ -23,6 +23,7 @@ export class CoffeesListComponent implements OnInit {
     this.coffeeService.getAll().subscribe(
       (data) => {
         this.coffees = data;
+        this.coffees.sort((a, b) => b.score - a.score);
         console.log(data);
       },
       (error) => {
