@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <h4>coffees List</h4>
+    <h4>Coffees</h4>
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -29,6 +29,55 @@
       >
         {{ coffee.title }}
       </li>
+    </ul>
+    <br /><br />
+    <h4>5.0 coffees</h4>
+    <ul class="list-group">
+      <!-- Note: using ng-container here since you can only use 1 *ng statement per
+      item, and do not want to make a li container in DOM if not going to use it -->
+      <ng-container *ngFor="let coffee of coffees; let i = index">
+        <li
+          class="list-group-item"
+          *ngIf="coffee.score == 5.0"
+          [class.active]="i == currentIndex"
+          (click)="setActivecoffee(coffee, i)"
+        >
+          {{ coffee.title }}
+        </li>
+      </ng-container>
+    </ul>
+    <br /><br />
+    <h4>4.75 coffees</h4>
+    <ul class="list-group">
+      <ng-container
+        class="list-group-item"
+        *ngFor="let coffee of coffees; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActivecoffee(coffee, i)"
+      >
+        <li class="list-group-item" *ngIf="coffee.score == 4.75">
+          {{ coffee.title }}
+        </li>
+      </ng-container>
+    </ul>
+    <br /><br />
+    <h4>4.5 coffees</h4>
+    <ul class="list-group">
+      <ng-container
+        class="list-group-item"
+        *ngFor="let coffee of coffees; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActivecoffee(coffee, i)"
+      >
+        <li
+          class="list-group-item"
+          *ngIf="coffee.score == 4.5"
+          [class.active]="i == currentIndex"
+          (click)="setActivecoffee(coffee, i)"
+        >
+          {{ coffee.title }}
+        </li>
+      </ng-container>
     </ul>
 
     <button class="m-3 btn btn-sm btn-danger" (click)="removeAllcoffees()">
