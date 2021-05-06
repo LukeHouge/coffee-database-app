@@ -32,6 +32,7 @@ export class CoffeesListComponent implements OnInit {
         this.coffees.sort((a, b) => b.score - a.score);
         this.mostCommonRoaster = mode(this.coffees, 'roaster');
         this.mostCommonScore = mode(this.coffees, 'score');
+        // TODO: add name next to which one is lowest/highest etc. and also include the price I paid not per ounce
         this.lowestPrice = Math.min.apply(
           null,
           this.coffees.map((item) => item.price / item.size)

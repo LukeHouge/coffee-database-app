@@ -5,6 +5,7 @@
         type="text"
         class="form-control"
         placeholder="Search by title"
+        (keyup.enter)="searchTitle()"
         [(ngModel)]="title"
       />
       <div class="input-group-append">
