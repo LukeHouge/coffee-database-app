@@ -12,6 +12,12 @@ export class CoffeesListComponent implements OnInit {
   currentcoffee?: Coffee;
   currentIndex = -1;
   title = '';
+  mostCommonRoaster = '';
+  mostCommonScore = 0;
+  averageScore = 0;
+  highestPrice = 0;
+  lowestPrice = 0;
+  averagePrice = 0;
 
   constructor(private coffeeService: CoffeeService) {}
 
@@ -24,7 +30,24 @@ export class CoffeesListComponent implements OnInit {
       (data) => {
         this.coffees = data;
         this.coffees.sort((a, b) => b.score - a.score);
-        console.log(data);
+        this.mostCommonRoaster = mode(this.coffees, 'roaster');
+        this.mostCommonScore = mode(this.coffees, 'score');
+        this.lowestPrice = Math.min.apply(
+          null,
+          this.coffees.map((item) => item.price / item.size)
+        );
+        this.highestPrice = Math.max.apply(
+          null,
+          this.coffees.map((item) => item.price / item.size)
+        );
+        let totalPrice = 0;
+        let totalScore = 0;
+        this.coffees.forEach(function (coffee) {
+          totalPrice += coffee.price / coffee.size;
+          totalScore += coffee.score;
+        });
+        this.averagePrice = totalPrice / this.coffees.length;
+        this.averageScore = totalScore / this.coffees.length;
       },
       (error) => {
         console.log(error);
@@ -69,4 +92,27 @@ export class CoffeesListComponent implements OnInit {
       }
     );
   }
+}
+
+/**
+ * find the mode of an object field from array
+ * @param array - array to find mode of
+ * @param field - field of object to find mode of
+ * @returns - mode of the array for given field
+ */
+function mode(array, field) {
+  if (array.length == 0) return null;
+  var modeMap = {};
+  var maxEl = array[0].roaster,
+    maxCount = 1;
+  for (var i = 0; i < array.length; i++) {
+    var el = array[i][field];
+    if (modeMap[el] == null) modeMap[el] = 1;
+    else modeMap[el]++;
+    if (modeMap[el] > maxCount) {
+      maxEl = el;
+      maxCount = modeMap[el];
+    }
+  }
+  return maxEl;
 }
