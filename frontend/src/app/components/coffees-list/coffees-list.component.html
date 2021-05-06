@@ -116,6 +116,24 @@
         {{ currentcoffee.purchased }}
       </div>
       <div>
+        <label><strong>Flavor Profile/Rating:</strong></label>
+        <app-radar-chart
+          [data]="[
+            currentcoffee.aroma,
+            currentcoffee.body,
+            currentcoffee.flavor,
+            currentcoffee.acidity,
+            currentcoffee.sweetness,
+            currentcoffee.balance,
+            currentcoffee.cleanliness,
+            currentcoffee.aftertaste,
+            currentcoffee.complexity
+          ]"
+        >
+        </app-radar-chart>
+      </div>
+
+      <div>
         <label><strong>Notes:</strong></label
         ><br />
         {{ currentcoffee.notes }}<br /><br />
@@ -129,8 +147,6 @@
         <label><strong>Score:</strong></label>
         {{ currentcoffee.score }}
       </div>
-      <app-radar-chart [data]="[4, 4.25, 4.1, 4.5, 4.75, 4, 4, 4.5]">
-      </app-radar-chart>
 
       <a
         class="badge badge-warning"

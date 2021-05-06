@@ -19,6 +19,15 @@ export class AddCoffeeComponent implements OnInit {
   price = 0;
   size = -0;
   date = 0;
+  aroma = 0;
+  body = 0;
+  flavor = 0;
+  acidity = 0;
+  sweetness = 0;
+  balance = 0;
+  cleanliness = 0;
+  aftertaste = 0;
+  complexity = 0;
   message = '';
 
   constructor(private coffeeService: CoffeeService) {}

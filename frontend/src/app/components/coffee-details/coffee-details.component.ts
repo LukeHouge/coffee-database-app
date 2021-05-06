@@ -19,6 +19,15 @@ export class CoffeeDetailsComponent implements OnInit {
   price = 0;
   size = 0;
   date = 0;
+  aroma = 0;
+  body = 0;
+  flavor = 0;
+  acidity = 0;
+  sweetness = 0;
+  balance = 0;
+  cleanliness = 0;
+  aftertaste = 0;
+  complexity = 0;
   message = '';
 
   constructor(
@@ -54,6 +63,15 @@ export class CoffeeDetailsComponent implements OnInit {
       notes: this.currentcoffee.notes,
       link: this.currentcoffee.link,
       score: this.currentcoffee.score,
+      aroma: this.currentcoffee.aroma,
+      body: this.currentcoffee.body,
+      flavor: this.currentcoffee.flavor,
+      acidity: this.currentcoffee.acidity,
+      sweetness: this.currentcoffee.sweetness,
+      balance: this.currentcoffee.balance,
+      cleanliness: this.currentcoffee.cleanliness,
+      aftertaste: this.currentcoffee.aftertaste,
+      complexity: this.currentcoffee.complexity,
     };
 
     this.message = '';
