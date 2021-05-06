@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RadialChartOptions } from 'chart.js';
 @Component({
   selector: 'app-radar-chart',
@@ -6,6 +6,8 @@ import { RadialChartOptions } from 'chart.js';
   styleUrls: ['./radar-chart.component.css'],
 })
 export class RadarChartComponent implements OnInit {
+  @Input('data') data: [{}];
+
   public radarChartLabels = [
     'Aroma',
     'Body',
@@ -17,9 +19,6 @@ export class RadarChartComponent implements OnInit {
     'Aftertaste',
     'Complexity',
   ];
-  public radarChartData = [
-    { data: [4.25, 4.0, 4.25, 4.25, 4.25, 4.5, 4.0, 4.5, 4.25] },
-  ];
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
     scale: {
@@ -29,9 +28,14 @@ export class RadarChartComponent implements OnInit {
         min: 0,
       },
     },
+    legend: {
+      display: false,
+    },
   };
 
   public radarChartType = 'radar';
   constructor() {}
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.data);
+  }
 }
