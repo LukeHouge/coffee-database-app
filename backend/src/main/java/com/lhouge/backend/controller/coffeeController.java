@@ -64,8 +64,10 @@ public class coffeeController {
 	@PostMapping("/coffees")
 	public ResponseEntity<Coffee> createcoffee(@RequestBody Coffee coffee) {
 		try {
-			Coffee _coffee = coffeeRepository.save(new Coffee(coffee.getTitle(), coffee.getRoaster(), coffee.getPrice,
-					coffee.getSize(), coffee.getDate(), coffee.getNotes(), coffee.getLink(), coffee.getScore()));
+			Coffee _coffee = coffeeRepository.save(new Coffee(coffee.getTitle(), coffee.getRoaster(), coffee.getPrice(),
+					coffee.getSize(), coffee.getDate(), coffee.getNotes(), coffee.getLink(), coffee.getScore(),
+					coffee.getAroma(), coffee.getBody(), coffee.getFlavor(), coffee.getAcidity(), coffee.getSweetness(),
+					coffee.getBalance(), coffee.getCleanliness(), coffee.getAftertaste(), coffee.getComplexity()));
 			return new ResponseEntity<>(_coffee, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -86,6 +88,15 @@ public class coffeeController {
 			_coffee.setNotes(coffee.getNotes());
 			_coffee.setLink(coffee.getLink());
 			_coffee.setScore(coffee.getScore());
+			_coffee.setAroma(coffee.getAroma());
+			_coffee.setBody(coffee.getBody());
+			_coffee.setFlavor(coffee.getFlavor());
+			_coffee.setAcidity(coffee.getAcidity());
+			_coffee.setSweetness(coffee.getSweetness());
+			_coffee.setBalance(coffee.getBalance());
+			_coffee.setCleanliness(coffee.getCleanliness());
+			_coffee.setAftertaste(coffee.getAftertaste());
+			_coffee.setComplexity(coffee.getComplexity());
 
 			return new ResponseEntity<>(coffeeRepository.save(_coffee), HttpStatus.OK);
 		} else {

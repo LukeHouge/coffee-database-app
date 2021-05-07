@@ -81,13 +81,12 @@
     <br /><br />
 
     <h4>Stats</h4>
-    <!-- TODO: add stats for most common roaster, highest price, lowest, highest each category, etc. -->
     <li>Most Common Roaster: {{ mostCommonRoaster }}</li>
     <li>Most Common Score: {{ mostCommonScore }}</li>
-    <li>Average Score: {{ averageScore }}</li>
-    <li>Highest Price/Oz: {{ highestPrice }}</li>
-    <li>Lowest Price/Oz: {{ lowestPrice }}</li>
-    <li>Average Price/Oz: {{ averagePrice }}</li>
+    <li>Average Score: {{ averageScore | number: "1.0-2" }}</li>
+    <li>Highest Price/Oz: {{ highestPrice | number: "1.0-2" }}</li>
+    <li>Lowest Price/Oz: {{ lowestPrice | number: "1.0-2" }}</li>
+    <li>Average Price/Oz: {{ averagePrice | number: "1.0-2" }}</li>
   </div>
   <div class="col-md-6">
     <div *ngIf="currentcoffee">
@@ -109,7 +108,8 @@
       </div>
       <div>
         <label><strong>Price/oz:</strong></label>
-        ${{ currentcoffee.price / currentcoffee.size }} oz
+        <!-- note: using angular rounding, 1 is min int digits, 0-2 is min and max fractional digits-->
+        ${{ currentcoffee.price / currentcoffee.size | number: "1.0-2" }} oz
       </div>
       <div>
         <label><strong>Purchase Date:</strong></label>

@@ -36,12 +36,30 @@ public class Coffee {
 	@Column(name = "score")
 	private Float score;
 
-	public Coffee() {
+	@Column(name = "aroma")
+	private Float aroma;
+	@Column(name = "body")
+	private Float body;
+	@Column(name = "flavor")
+	private Float flavor;
+	@Column(name = "acidity")
+	private Float acidity;
+	@Column(name = "sweetness")
+	private Float sweetness;
+	@Column(name = "balance")
+	private Float balance;
+	@Column(name = "cleanliness")
+	private Float cleanliness;
+	@Column(name = "aftertaste")
+	private Float aftertaste;
+	@Column(name = "complexity")
+	private Float complexity;
 
-	}
-
+	public Coffee(){}
+	
 	public Coffee(String title, String roaster, Float price, Float size, Date date, String notes, String link,
-			Float score) {
+			Float score, Float aroma, Float body, Float flavor, Float acidity, Float sweetness, Float balance,
+			Float cleanliness, Float aftertaste, Float complexity) {
 		this.title = title;
 		this.roaster = roaster;
 		this.price = price;
@@ -50,6 +68,15 @@ public class Coffee {
 		this.notes = notes;
 		this.link = link;
 		this.score = score;
+		this.aroma = aroma;
+		this.body = body;
+		this.flavor = flavor;
+		this.acidity = acidity;
+		this.sweetness = sweetness;
+		this.balance = balance;
+		this.cleanliness = cleanliness;
+		this.aftertaste = aftertaste;
+		this.complexity = complexity;
 	}
 
 	public long getId() {
@@ -120,10 +147,84 @@ public class Coffee {
 		this.score = score;
 	}
 
+	public Float getAroma() {
+		return aroma;
+	}
+
+	public void setAroma(Float aroma) {
+		this.aroma = aroma;
+	}
+
+	public Float getFlavor() {
+		return flavor;
+	}
+
+	public void setFlavor(Float flavor) {
+		this.flavor = flavor;
+	}
+
+	public Float getBody() {
+		return body;
+	}
+
+	public void setBody(Float body) {
+		this.body = body;
+	}
+
+	public Float getComplexity() {
+		return complexity;
+	}
+
+	public void setComplexity(Float complexity) {
+		this.complexity = complexity;
+	}
+
+	public Float getAcidity() {
+		return acidity;
+	}
+
+	public void setAcidity(Float acidity) {
+		this.acidity = acidity;
+	}
+
+	public Float getSweetness() {
+		return sweetness;
+	}
+
+	public void setSweetness(Float sweetness) {
+		this.sweetness = sweetness;
+	}
+
+	public Float getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Float balance) {
+		this.balance = balance;
+	}
+
+	public Float getCleanliness() {
+		return cleanliness;
+	}
+
+	public void setCleanliness(Float cleanliness) {
+		this.cleanliness = cleanliness;
+	}
+
+	public Float getAftertaste() {
+		return aftertaste;
+	}
+
+	public void setAftertaste(Float aftertaste) {
+		this.aftertaste = aftertaste;
+	}
+
 	@Override
 	public String toString() {
 		return "coffee [id=" + id + ", title=" + title + ", roaster=" + roaster + ", price=" + price + ", size=" + size
-				+ ", date=" + date + ", notes=" + notes + ", link=" + link + ", score=" + price + "]";
+				+ ", date=" + date + ", notes=" + notes + ", link=" + link + ", score=" + score + ", aroma=" + aroma
+				+ ",body=" + body + ",flavor=" + flavor + ",acidity=" + acidity + ",sweetness=" + sweetness
+				+ ",cleanliness=" + cleanliness + ",aftertaste=" + aftertaste + ",complexity=" + complexity + "]";
 	}
 
 }

@@ -43,7 +43,15 @@ export class AddCoffeeComponent implements OnInit {
       date: this.coffee.date,
       notes: this.coffee.notes,
       link: this.coffee.link,
-      score: this.coffee.score,
+      aroma: this.coffee.aroma,
+      body: this.coffee.body,
+      flavor: this.coffee.flavor,
+      acidity: this.coffee.acidity,
+      sweetness: this.coffee.sweetness,
+      balance: this.coffee.balance,
+      cleanliness: this.coffee.cleanliness,
+      aftertaste: this.coffee.aftertaste,
+      complexity: this.coffee.complexity,
     };
 
     this.coffeeService.create(data).subscribe(
