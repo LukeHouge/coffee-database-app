@@ -13,7 +13,7 @@ import { BoardModeratorComponent } from './components/board-moderator/board-mode
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'coffees', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // sets homepage
   { path: 'coffees', component: CoffeesListComponent },
   { path: 'coffees/:id', component: CoffeeDetailsComponent },
   { path: 'add', component: AddCoffeeComponent },
